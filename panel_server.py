@@ -177,7 +177,7 @@ HTML = r"""
   <!-- Header -->
   <header>
     <div class="logo">
-      <div class="logo-icon">📡</div>
+      <div class="logo-icon"></div>
       <div class="logo-text">
         <h1>Monitor Central</h1>
         <span>Sistema de Monitoreo Empresarial</span>
@@ -211,7 +211,7 @@ HTML = r"""
   <!-- Apps autorizadas -->
   <div class="section">
     <div class="section-header">
-      <div class="section-title">🛡️ Apps Autorizadas</div>
+      <div class="section-title"> Apps Autorizadas</div>
     </div>
     <div class="section-body">
       <form class="app-form" method="POST" action="/add_app">
@@ -225,7 +225,7 @@ HTML = r"""
           {{ a }}
           <form method="POST" action="/remove_app" style="display:inline">
             <input type="hidden" name="app" value="{{ a }}">
-            <button class="btn btn-danger btn-sm" type="submit">✕</button>
+            <button class="btn btn-danger btn-sm" type="submit">x</button>
           </form>
         </div>
         {% endfor %}
@@ -239,7 +239,7 @@ HTML = r"""
   <!-- Tiempo real -->
   <div class="section">
     <div class="section-header">
-      <div class="section-title">💻 Estado en Tiempo Real</div>
+      <div class="section-title"> Estado en Tiempo Real</div>
     </div>
     <div class="section-body" style="padding:0">
       {% if datos %}
@@ -260,11 +260,11 @@ HTML = r"""
               <td><span class="time-val idle-val">{{ "%.0f"|format(info['idle']) }}s</span></td>
               <td class="td-estado">
                 {% if info['idle'] > 15 %}
-                  <span class="badge badge-warn">⏸ Inactivo</span>
+                  <span class="badge badge-warn">[--] Inactivo</span>
                 {% elif info['app'] in autorizadas %}
-                  <span class="badge badge-ok">✔ Autorizado</span>
+                  <span class="badge badge-ok">[OK] Autorizado</span>
                 {% else %}
-                  <span class="badge badge-danger">✖ No autorizado</span>
+                  <span class="badge badge-danger">[X] No autorizado</span>
                 {% endif %}
               </td>
               <td><span class="ts-val">{{ info.get('timestamp','—') }}</span></td>
@@ -275,7 +275,7 @@ HTML = r"""
       </div>
       {% else %}
       <div class="empty">
-        <div class="empty-icon">📭</div>
+        <div class="empty-icon"></div>
         <p>Sin datos aún. Los agentes reportarán en breve.</p>
       </div>
       {% endif %}
@@ -285,7 +285,7 @@ HTML = r"""
   <!-- Historial por equipo -->
   <div class="section">
     <div class="section-header">
-      <div class="section-title">📋 Historial de Usos No Autorizados por Equipo</div>
+      <div class="section-title"> Historial de Usos No Autorizados por Equipo</div>
     </div>
     <div class="section-body">
       {% if historial %}
@@ -328,7 +328,7 @@ HTML = r"""
       </div>
       {% else %}
       <div class="empty">
-        <div class="empty-icon">✅</div>
+        <div class="empty-icon"></div>
         <p>Sin historial de usos no autorizados aún.</p>
       </div>
       {% endif %}
@@ -355,9 +355,9 @@ HTML = r"""
   }
 
   function badge(idle, app) {
-    if (idle > IDLE_UMBRAL)        return '<span class="badge badge-warn">⏸ Inactivo</span>';
-    if (AUTORIZADAS.includes(app)) return '<span class="badge badge-ok">✔ Autorizado</span>';
-    return '<span class="badge badge-danger">✖ No autorizado</span>';
+    if (idle > IDLE_UMBRAL)        return '<span class="badge badge-warn">[--] Inactivo</span>';
+    if (AUTORIZADAS.includes(app)) return '<span class="badge badge-ok">[OK] Autorizado</span>';
+    return '<span class="badge badge-danger">[X] No autorizado</span>';
   }
 
   // Ticker cada segundo — interpola sin tocar el servidor

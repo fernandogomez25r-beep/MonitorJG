@@ -1,10 +1,10 @@
-# 📡 Sistema de Monitoreo Empresarial
+#  Sistema de Monitoreo Empresarial
 
 Panel de monitoreo de actividad de equipos en red local, compuesto por tres módulos independientes.
 
 ---
 
-## 🗂️ Estructura del proyecto
+##  Estructura del proyecto
 
 ```
 monitor/
@@ -17,7 +17,7 @@ monitor/
 
 ---
 
-## ⚙️ Configuración rápida
+##  Configuración rápida
 
 ### 1. Instalar dependencias
 
@@ -60,7 +60,7 @@ Escucha en el puerto `5001`. Cuando un agente envíe una alerta, aparecerá una 
 
 ---
 
-## 🔄 Flujo de datos
+##  Flujo de datos
 
 ```
 [PC Empleado]                [Servidor central]         [PC Administrador]
@@ -73,7 +73,7 @@ Escucha en el puerto `5001`. Cuando un agente envíe una alerta, aparecerá una 
 
 ---
 
-## 📋 Notas
+##  Notas
 
 - Los agentes reportan cada **5 segundos** de uso continuo de una app no autorizada.
 - Una alerta se genera tras **60 segundos** acumulados de uso no autorizado.

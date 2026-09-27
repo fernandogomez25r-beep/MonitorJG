@@ -34,7 +34,7 @@ def mostrar_alerta(data: dict):
     tiempo_str = f"{data.get('time', 0)} seg"
 
     mensaje = (
-        f"⚠️  ACTIVIDAD NO AUTORIZADA DETECTADA\n"
+        f"ADVERTENCIA  ACTIVIDAD NO AUTORIZADA DETECTADA\n"
         f"{'─' * 40}\n"
         f"  Empleado : {data.get('employee', 'Desconocido')}\n"
         f"  Aplicación: {data.get('app', 'N/A')}\n"

@@ -14,8 +14,8 @@ import psutil
 from winotify import Notification, audio
 
 # ─── Configuración ────────────────────────────────────────────────────────────
-SERVER_URL      = "http://192.168.1.7:5000/data"   # ⚠️ Cambia por la IP del servidor
-EMPLEADO        = "PC-01"                           # ⚠️ Nombre único de este equipo
+SERVER_URL      = "http://192.168.1.7:5000/data"   # ADVERTENCIA: Cambia por la IP del servidor
+EMPLEADO        = "PC-01"                           # ADVERTENCIA: Nombre único de este equipo
 INTERVALO       = 5        # segundos entre cada revisión
 UMBRAL_NOTIF    = 420      # 7 minutos acumulados → notificación Windows
 UMBRAL_IDLE     = 15       # segundos sin actividad para considerar "inactivo"
@@ -71,7 +71,7 @@ def notificar_windows(app: str, minutos: int):
     try:
         toast = Notification(
             app_id="Monitor Empresarial",
-            title="⚠️ Uso no autorizado detectado",
+            title="ADVERTENCIA: Uso no autorizado detectado",
             msg=f"{EMPLEADO} lleva {minutos} min usando {app}",
             duration="short",   # desaparece sola, no interrumpe
         )
