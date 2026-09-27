@@ -1,0 +1,5 @@
+flask
+requests
+psutil
+pywin32
+winotify
